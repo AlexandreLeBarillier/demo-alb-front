@@ -1,0 +1,22 @@
+<h2>Création d'une tâche</h2>
+
+<form [formGroup]="createTaskForm" (ngSubmit)="submit()">
+    <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <input formControlName="label" matInput>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Status</mat-label>
+        <mat-select formControlName="status">
+            <mat-option value="to_do">To do</mat-option>
+            <mat-option value="in_progress">In progress</mat-option>
+            <mat-option value="to_review">To review</mat-option>
+            <mat-option value="done">Done</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-card-actions>
+        <button mat-raised-button type="submit" color="primary" [disabled]="!createTaskForm.valid">Create</button>
+    </mat-card-actions>
+</form>

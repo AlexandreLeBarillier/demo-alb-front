@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'demo-alb-front';
+  title = 'Projet de démonstration Alexandre LE BARILLIER';
 }

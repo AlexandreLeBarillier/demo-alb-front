@@ -1,0 +1,23 @@
+.project-name{
+    text-align: center;
+    background-color: #9b59b6;
+    color: white;
+    padding: 10px;
+    margin: 0px;
+}
+
+#main{
+    display: flex;
+}
+
+nav{
+    flex-shrink: 2;
+    padding: 10px;
+    background-color: #bdc3c7;
+    vertical-align: top;
+}
+
+.content{
+    flex-grow: 1;
+    padding: 0px 20px;
+}

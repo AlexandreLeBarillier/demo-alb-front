@@ -1,0 +1,49 @@
+<h2>Gestion des tâches</h2>
+
+<a routerLink="/tasks/create">
+    <button mat-raised-button aria-label="Add a task">
+        Ajouter une tâche
+        <mat-icon>add</mat-icon>
+    </button>
+</a>
+
+<h4>Filtres</h4>
+<mat-form-field>
+    <mat-label>Status</mat-label>
+    <mat-select (selectionChange)="filter($event)">
+        <mat-option value="">All</mat-option>
+        <mat-option value="to_do">To do</mat-option>
+        <mat-option value="in_progress">In progress</mat-option>
+        <mat-option value="to_review">To review</mat-option>
+        <mat-option value="done">Done</mat-option>
+    </mat-select>
+</mat-form-field>
+
+<mat-table [dataSource]="tasks" class="tasks mat-elevation-z8">
+    <ng-container matColumnDef="id">
+        <mat-header-cell mat-header-cell *matHeaderCellDef> ID. </mat-header-cell>
+        <mat-cell mat-cell *matCellDef="let task"> {{task.id}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="label">
+        <mat-header-cell mat-header-cell *matHeaderCellDef> Label </mat-header-cell>
+        <mat-cell mat-cell *matCellDef="let task"> {{task.label}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="status">
+        <mat-header-cell *matHeaderCellDef> Statut </mat-header-cell>
+        <mat-cell *matCellDef="let task">
+            <mat-select (selectionChange)="update($event, task)" [(ngModel)]="task.status">
+                <mat-option value="to_do">To do</mat-option>
+                <mat-option value="in_progress">In progress</mat-option>
+                <mat-option value="to_review">To review</mat-option>
+                <mat-option value="done">Done</mat-option>
+            </mat-select>
+        </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+</mat-table>
+
